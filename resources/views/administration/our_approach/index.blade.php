@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">CFIRED - Our Services</h4>
+                        <h4 class="mb-sm-0">CFIRED - Our Approach</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
-                                <li class="breadcrumb-item active">Our Services</li>
+                                <li class="breadcrumb-item active">Our Approach</li>
                             </ol>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
                                         <button class="btn btn-info add-btn" data-bs-toggle="modal"
                                                 data-bs-target="#showModal">
-                                            <i class="fa fa-plus"></i> Add Services
+                                            <i class="fa fa-plus"></i> Add Approach
                                         </button>
                                     </div>
                                 </div>
@@ -71,15 +71,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <!--start table-->
-                                @if($services)
-                                    @foreach($services as $service)
+                                @if($ourApproaches)
+                                    @foreach($ourApproaches as $ourApproach)
                                         <div class="row">
                                             <!--end col-->
                                             <div class="col-xxl-8">
                                                 <div class="card">
                                                     <div class="card-header align-items-center d-flex">
                                                         <h4 style="font-weight: bold;font-size: 20px;color: black;" class="card-title mb-0 flex-grow-1">
-                                                            {{$service->title}}
+                                                            {{$ourApproach->title}}
                                                         </h4>
                                                     </div><!-- end card header -->
                                                     <div class="card-body">
@@ -89,7 +89,7 @@
                                                                      id="collapseWidthExample">
                                                                     <div class="card card-body mb-0"
                                                                          style="width: 100%;">
-                                                                        {!! $service->text !!}
+                                                                        {!! $ourApproach->text !!}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -100,10 +100,9 @@
                                                             <li class="list-inline-item">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="flex-shrink-0 w-100">
-                                                                        <a href="{{route('services.edit',$service->slug)}}"
+                                                                        <a href="{{route('our-approach.edit',$ourApproach->slug)}}"
                                                                            class="btn btn-primary">
-                                                                            <i class="fa fa-pencil"></i> Edit Our
-                                                                            {{$service->title}}
+                                                                            <i class="fa fa-pencil"></i> Edit Our Approach
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -116,7 +115,7 @@
 
                                             <div class="col-xxl-4">
                                                 <div class="card">
-                                                    <img class="card-img-top img-fluid" src="{{asset($service->image)}}"
+                                                    <img class="card-img-top img-fluid" src="{{asset($ourApproach->image)}}"
                                                          alt="Card image cap">
                                                 </div>
                                             </div>
@@ -125,75 +124,74 @@
 
                                     @endforeach
                                 @endif
-                                <!--start modal-->
-                                <div class="modal fade" id="showModal" tabindex="-1"
-                                     aria-labelledby="exampleModalLabel"
-                                     aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg">
-                                        <div class="modal-content border-0">
-                                            <div class="modal-header bg-soft-info p-3">
-                                                <h5 class="modal-title" id="exampleModalLabel">CFIRED
-                                                    SERVICES</h5>
-                                                <button type="button" class="btn-close"
-                                                        data-bs-dismiss="modal"
-                                                        aria-label="Close" id="close-modal"></button>
-                                            </div>
-                                            <form method="post" action="{{route('services.store')}}"
-                                                  enctype="multipart/form-data">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <div class="row g-3">
-                                                        <div class="col-lg-12">
+                            </div>
+                            <!--start modal-->
+                            <div class="modal fade" id="showModal" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content border-0">
+                                        <div class="modal-header bg-soft-info p-3">
+                                            <h5 class="modal-title" id="exampleModalLabel">CFIRED
+                                                JOURNEY</h5>
+                                            <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close" id="close-modal"></button>
+                                        </div>
+                                        <form method="post" action="{{route('our-approach.store')}}"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="row g-3">
+                                                    <div class="col-lg-12">
 
-                                                            <label for="title"
-                                                                   class="form-label">Section Title</label>
-                                                            <input type="text" id="title"
-                                                                   class="form-control"
-                                                                   name="title" placeholder="Enter title "
-                                                                   required/>
+                                                        <label for="title"
+                                                               class="form-label">Section Title</label>
+                                                        <input type="text" id="title"
+                                                               class="form-control"
+                                                               name="title" placeholder="Enter title "
+                                                               required/>
 
-                                                        </div>
-                                                        <div class="col-lg-12">
-                                                            <label for="text"
-                                                                   class="form-label">Content</label>
-                                                            <textarea name="text"
-                                                                      class="form-control editor"
-                                                                      id="editor">
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label for="text"
+                                                               class="form-label">Content</label>
+                                                        <textarea name="text"
+                                                                  class="form-control editor"
+                                                                  id="editor">
 
                                                     </textarea>
 
-                                                        </div>
-
-                                                        <div class="col-lg-4">
-                                                            <div>
-                                                                <label for="image"
-                                                                       class="form-label">Image
-                                                                    Cover</label>
-                                                                <input type="file" id="image" name="image"
-                                                                       class="form-control"
-                                                                       placeholder="Upload Image"
-                                                                />
-                                                            </div>
-                                                        </div>
-
                                                     </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <div class="justify-content-start">
-                                                        <button type="button" class="btn btn-light"
-                                                                data-bs-dismiss="modal">Close
-                                                        </button>
-                                                        <input type="submit" class="btn btn-success"
-                                                               value="Submit"/>
+
+                                                    <div class="col-lg-4">
+                                                        <div>
+                                                            <label for="image"
+                                                                   class="form-label">Image
+                                                                Cover</label>
+                                                            <input type="file" id="image" name="image"
+                                                                   class="form-control"
+                                                                   placeholder="Upload Image"
+                                                            />
+                                                        </div>
                                                     </div>
+
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <div class="justify-content-start">
+                                                    <button type="button" class="btn btn-light"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                    <input type="submit" class="btn btn-success"
+                                                           value="Submit"/>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <!--end add modal-->
                             </div>
-
+                            <!--end add modal-->
                         </div>
 
 

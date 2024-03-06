@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">CFIRED - Our Services</h4>
+                        <h4 class="mb-sm-0">CFIRED - About Us</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
-                                <li class="breadcrumb-item active">Our Services</li>
+                                <li class="breadcrumb-item active">About Us</li>
                             </ol>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
                                         <button class="btn btn-info add-btn" data-bs-toggle="modal"
                                                 data-bs-target="#showModal">
-                                            <i class="fa fa-plus"></i> Add Services
+                                            <i class="fa fa-plus"></i> Add About Us
                                         </button>
                                     </div>
                                 </div>
@@ -71,15 +71,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <!--start table-->
-                                @if($services)
-                                    @foreach($services as $service)
+                                @if($introductions)
+                                    @foreach($introductions as $introduction)
                                         <div class="row">
                                             <!--end col-->
                                             <div class="col-xxl-8">
                                                 <div class="card">
                                                     <div class="card-header align-items-center d-flex">
                                                         <h4 style="font-weight: bold;font-size: 20px;color: black;" class="card-title mb-0 flex-grow-1">
-                                                            {{$service->title}}
+                                                            {{$introduction->title}}
                                                         </h4>
                                                     </div><!-- end card header -->
                                                     <div class="card-body">
@@ -89,7 +89,7 @@
                                                                      id="collapseWidthExample">
                                                                     <div class="card card-body mb-0"
                                                                          style="width: 100%;">
-                                                                        {!! $service->text !!}
+                                                                        {!! $introduction->text !!}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -100,10 +100,9 @@
                                                             <li class="list-inline-item">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="flex-shrink-0 w-100">
-                                                                        <a href="{{route('services.edit',$service->slug)}}"
+                                                                        <a href="{{route('introduction.edit',$introduction->slug)}}"
                                                                            class="btn btn-primary">
-                                                                            <i class="fa fa-pencil"></i> Edit Our
-                                                                            {{$service->title}}
+                                                                            <i class="fa fa-pencil"></i> Edit About Us
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -116,7 +115,7 @@
 
                                             <div class="col-xxl-4">
                                                 <div class="card">
-                                                    <img class="card-img-top img-fluid" src="{{asset($service->image)}}"
+                                                    <img class="card-img-top img-fluid" src="{{asset($introduction->image)}}"
                                                          alt="Card image cap">
                                                 </div>
                                             </div>
@@ -133,12 +132,12 @@
                                         <div class="modal-content border-0">
                                             <div class="modal-header bg-soft-info p-3">
                                                 <h5 class="modal-title" id="exampleModalLabel">CFIRED
-                                                    SERVICES</h5>
+                                                    About Us</h5>
                                                 <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"
                                                         aria-label="Close" id="close-modal"></button>
                                             </div>
-                                            <form method="post" action="{{route('services.store')}}"
+                                            <form method="post" action="{{route('introduction.store')}}"
                                                   enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body">
@@ -193,7 +192,6 @@
                                 </div>
                                 <!--end add modal-->
                             </div>
-
                         </div>
 
 
@@ -249,7 +247,7 @@
                 modal.find('#title').val(title); // Assuming your modal has an input field with ID 'title'
                 modal.find('#editor').val(text); // Assuming your modal has a textarea or input field with ID 'text'
 
-                $('#mainForm').attr('action', '/admin/mission/' + slug);
+                $('#mainForm').attr('action', '/admin/vision/' + slug);
 
             });
         });

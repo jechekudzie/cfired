@@ -73,136 +73,126 @@
                                 <!--start table-->
                                 @if($visions)
                                     @foreach($visions as $vision)
-                                        <table style="width: 100%;" id="buttons-datatables"
-                                               class="display table table-bordered dataTable no-footer"
-                                               aria-describedby="buttons-datatables_info">
-                                            <thead>
-                                            <tr>
-                                                <th class="sorting sorting_asc" tabindex="0"
-                                                    aria-controls="buttons-datatables" rowspan="1" colspan="1"
-                                                    aria-sort="ascending"
-                                                    aria-label="Name: activate to sort column descending"
-                                                    style="width: 224.4px;">Image
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="buttons-datatables"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Position: activate to sort column ascending"
-                                                    style="width: 336.4px;">Title
-                                                </th>
-                                                <th class="sorting" tabindex="0" aria-controls="buttons-datatables"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Office: activate to sort column ascending"
-                                                    style="width: 164.4px;">Text
-                                                </th>
+                                        <div class="row">
+                                            <!--end col-->
+                                            <div class="col-xxl-8">
+                                                <div class="card">
+                                                    <div class="card-header align-items-center d-flex">
+                                                        <h4 style="font-weight: bold;font-size: 20px;color: black;" class="card-title mb-0 flex-grow-1">
+                                                            {{$vision->title}}
+                                                        </h4>
+                                                    </div><!-- end card header -->
+                                                    <div class="card-body">
+                                                        <div class="live-preview">
+                                                            <div>
+                                                                <div class="collapse collapse-horizontal show"
+                                                                     id="collapseWidthExample">
+                                                                    <div class="card card-body mb-0"
+                                                                         style="width: 100%;">
+                                                                        {!! $vision->text !!}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br/>
+                                                        <br/>
+                                                        <ul class="list-inline d-flex align-items-center g-3 text-muted fs-14 mb-0">
+                                                            <li class="list-inline-item">
+                                                                <div class="d-flex align-items-center">
+                                                                    <div class="flex-shrink-0 w-100">
+                                                                        <a href="{{route('vision.edit',$vision->slug)}}"
+                                                                           class="btn btn-primary">
+                                                                            <i class="fa fa-pencil"></i> Edit Vision
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    </div><!-- end card-body -->
 
-                                                <th class="sorting" tabindex="0" aria-controls="buttons-datatables"
-                                                    rowspan="1" colspan="1"
-                                                    aria-label="Salary: activate to sort column ascending"
-                                                    style="width: 112.4px;">Action
-                                                </th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr class="even">
-                                                <td class="sorting_1">
-                                                    <img class="rounded-start w-50"
-                                                         src="{{ asset($vision->image) }}" alt="Card image">
-                                                </td>
-                                                <td>{{$vision->title}}</td>
-                                                <td>
-                                                    {!! substr($vision->text,0,50) !!}....<a href="{{route('vision.edit',$vision->slug)}}" class=""
-                                                                                             title="Edit">Read More</a>
-                                                </td>
-                                                <td>
-                                                    <a href="{{route('vision.edit',$vision->slug)}}" class="edit-button btn btn-sm btn-primary"
-                                                     title="Edit">
-                                                        <i class="fa fa-pencil"></i>
-                                                    </a>
-                                                    <!-- Delete Button -->
-                                                    <form action="{{ route('vision.destroy',$vision->slug)}}"
-                                                          method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-danger" title="Delete">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
+                                                </div><!-- end card -->
+                                            </div>
 
+                                            <div class="col-xxl-4">
+                                                <div class="card">
+                                                    <img class="card-img-top img-fluid" src="{{asset($vision->image)}}"
+                                                         alt="Card image cap">
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                        </div>
                                     @endforeach
                                 @endif
                             </div>
-                        </div>
-                        <!--start modal-->
-                        <div class="modal fade" id="showModal" tabindex="-1"
-                             aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content border-0">
-                                    <div class="modal-header bg-soft-info p-3">
-                                        <h5 class="modal-title" id="exampleModalLabel">CFIRED
-                                            VISION</h5>
-                                        <button type="button" class="btn-close"
-                                                data-bs-dismiss="modal"
-                                                aria-label="Close" id="close-modal"></button>
-                                    </div>
-                                    <form method="post" action="{{route('vision.store')}}"
-                                          enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="modal-body">
-                                            <div class="row g-3">
-                                                <div class="col-lg-12">
+                            <!--start modal-->
+                            <div class="modal fade" id="showModal" tabindex="-1"
+                                 aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content border-0">
+                                        <div class="modal-header bg-soft-info p-3">
+                                            <h5 class="modal-title" id="exampleModalLabel">CFIRED
+                                                VISION</h5>
+                                            <button type="button" class="btn-close"
+                                                    data-bs-dismiss="modal"
+                                                    aria-label="Close" id="close-modal"></button>
+                                        </div>
+                                        <form method="post" action="{{route('vision.store')}}"
+                                              enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="row g-3">
+                                                    <div class="col-lg-12">
 
-                                                    <label for="title"
-                                                           class="form-label">Section Title</label>
-                                                    <input type="text" id="title"
-                                                           class="form-control"
-                                                           name="title" placeholder="Enter title "
-                                                           required/>
+                                                        <label for="title"
+                                                               class="form-label">Section Title</label>
+                                                        <input type="text" id="title"
+                                                               class="form-control"
+                                                               name="title" placeholder="Enter title "
+                                                               required/>
 
-                                                </div>
-                                                <div class="col-lg-12">
-                                                    <label for="text"
-                                                           class="form-label">Content</label>
-                                                    <textarea name="text"
-                                                              class="form-control editor"
-                                                              id="editor">
+                                                    </div>
+                                                    <div class="col-lg-12">
+                                                        <label for="text"
+                                                               class="form-label">Content</label>
+                                                        <textarea name="text"
+                                                                  class="form-control editor"
+                                                                  id="editor">
 
                                                     </textarea>
 
-                                                </div>
-
-                                                <div class="col-lg-4">
-                                                    <div>
-                                                        <label for="image"
-                                                               class="form-label">Image
-                                                            Cover</label>
-                                                        <input type="file" id="image" name="image"
-                                                               class="form-control"
-                                                               placeholder="Upload Image"
-                                                        />
                                                     </div>
-                                                </div>
 
+                                                    <div class="col-lg-4">
+                                                        <div>
+                                                            <label for="image"
+                                                                   class="form-label">Image
+                                                                Cover</label>
+                                                            <input type="file" id="image" name="image"
+                                                                   class="form-control"
+                                                                   placeholder="Upload Image"
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <div class="justify-content-start">
-                                                <button type="button" class="btn btn-light"
-                                                        data-bs-dismiss="modal">Close
-                                                </button>
-                                                <input type="submit" class="btn btn-success"
-                                                       value="Submit"/>
+                                            <div class="modal-footer">
+                                                <div class="justify-content-start">
+                                                    <button type="button" class="btn btn-light"
+                                                            data-bs-dismiss="modal">Close
+                                                    </button>
+                                                    <input type="submit" class="btn btn-success"
+                                                           value="Submit"/>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
+                            <!--end add modal-->
                         </div>
-                        <!--end add modal-->
+
 
 
                     </div>

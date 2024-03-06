@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Journey;
+use App\Models\Introduction;
 use Illuminate\Http\Request;
 
-class JourneyController extends Controller
+class IntroductionController extends Controller
 {
     //
     public function index()
     {
-        $journeys = Journey::all();
-        return view('administration.our_journey.index',compact('journeys'));
+        $introductions = Introduction::all();
+        return view('administration.introductions.index',compact('introductions'));
     }
 
     public function store(Request $request)
@@ -34,31 +34,31 @@ class JourneyController extends Controller
             $validatedData['image'] = "/images/$imageName"; // Store the path in the $validatedData array
         }
 
-        // Create and save the new journey
-        $journey = Journey::create($validatedData);
+        // Create and save the new introduction
+        $introduction = Introduction::create($validatedData);
 
         // Redirect or return a response
-        return redirect()->route('our-journey.index')->with('success', 'Journey created successfully!');
+        return redirect()->route('introduction.index')->with('success', 'Introduction created successfully!');
         // For an API, you might return a JSON response
-        // return response()->json($journey, 201);
+        // return response()->json($introduction, 201);
     }
 
     public function create()
     {
-        return view('administration.our_journey.create');
+        return view('administration.introductions.create');
     }
 
-    public function show(Journey $journey)
+    public function show(Introduction $introduction)
     {
-        return view('administration.our_journey.show',compact('journey'));
+        return view('administration.introductions.show',compact('introduction'));
     }
 
-    public function edit(Journey $journey)
+    public function edit(Introduction $introduction)
     {
-        return view('administration.our_journey.edit',compact('journey'));
+        return view('administration.introductions.edit',compact('introduction'));
     }
 
-    public function update(Request $request, Journey $journey)
+    public function update(Request $request, Introduction $introduction)
     {
         // Validate the request data, including the image file
         $validatedData = $request->validate([
@@ -78,19 +78,19 @@ class JourneyController extends Controller
             $validatedData['image'] = "/images/$imageName"; // Store the path in the $validatedData array
         }
 
-        // Update the journey
-        $journey->update($validatedData);
+        // Update the introduction
+        $introduction->update($validatedData);
 
         // Redirect or return a response
-        return redirect()->route('our-journey.index')->with('success', 'Journey updated successfully!');
+        return redirect()->route('introduction.index')->with('success', 'Introduction updated successfully!');
         // For an API, you might return a JSON response
-        // return response()->json($journey, 200);
+        // return response()->json($introduction, 200);
     }
 
-    public function destroy(Journey $journey)
+    public function destroy(Introduction $introduction)
     {
-        $journey->delete();
-        return redirect()->route('our-journey.index')->with('success', 'Journey deleted successfully!');
+        $introduction->delete();
+        return redirect()->route('introduction.index')->with('success', 'Introduction deleted successfully!');
         // For an API, you might return a JSON response
         // return response()->json(null, 204);
     }
