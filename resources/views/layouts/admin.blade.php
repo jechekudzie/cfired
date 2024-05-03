@@ -156,10 +156,10 @@
 
                 <ul class="navbar-nav" id="navbar-nav">
                     <li style="/*color:white;*/ font-size: 12px;" class="menu-title"><span
-                            data-key="t-menu">Admin Menu</span></li>
-
+                            data-key="t-menu">Admin Menu</span>
+                    </li>
                     <!-- Contact Menu -->
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
                         <a style="/*color:white;*/ font-size: 12px;" class="nav-link menu-link collapsed"
                            href="#sidebarContact" data-bs-toggle="collapse" role="button"
                            aria-expanded="false" aria-controls="sidebarContact">
@@ -169,13 +169,13 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('contact-types.index')}}"
-                                       class="nav-link {{ Request::routeIs('contact-types.index*') ? 'active' : '' }}"
+                                       class="nav-link {{ Request::routeIs('contact-types.*') ? 'active' : '' }}"
                                        data-key="t-analytics">
                                         Contact Type </a>
                                 </li>
                             </ul>
                         </div>
-                    </li>
+                    </li>--}}
                     <!-- end Contact Menu -->
 
                     <!-- Location Menu -->
@@ -191,38 +191,37 @@
 
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('introduction.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('introduction.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Introduction </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('vision.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('vision.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Vision </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('mission.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('mission.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Mission </a>
                                 </li>
 
-
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('our-journey.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('our-journey.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Our Journey </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('core-values.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('core-values.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Our Core Value </a>
                                 </li>
 
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('our-approach.index')}}"
-                                       class="nav-link" data-key="t-analytics">
+                                       class="nav-link {{ Request::routeIs('our-approach.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Our Approach </a>
                                 </li>
 
@@ -242,13 +241,13 @@
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('our-services-introduction.index')}}"
-                                       class="nav-link {{ Request::routeIs('our-services-introduction,index') ? 'active' : '' }}"
+                                       class="nav-link {{ Request::routeIs('our-services-introduction.*') ? 'active' : '' }}"
                                        data-key="t-analytics">
                                         Services Introduction </a>
                                 </li>
                                 <li class="nav-item">
                                     <a style="/*color:white;*/ font-size: 12px;" href="{{route('services.index')}}"
-                                       class="nav-link {{ Request::routeIs('services.index') ? 'active' : '' }}"
+                                       class="nav-link {{ Request::routeIs('services.*') ? 'active' : '' }}"
                                        data-key="t-analytics">
                                         Services </a>
                                 </li>
@@ -323,6 +322,8 @@
 <!-- App js -->
 <script src="{{asset('administration/assets/js/app.js')}}"></script>
 
+
+
 <script>
     $(document).ready(function () {
         // Iterate over each active nav-link
@@ -342,8 +343,6 @@
     });
 
 </script>
-
-
 @stack('scripts')
 
 

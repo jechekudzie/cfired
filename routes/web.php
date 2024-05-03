@@ -24,12 +24,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Landing page
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('site.index');
+Route::get('/about', [\App\Http\Controllers\SiteController::class, 'about'])->name('site.about');
+Route::get('/services', [\App\Http\Controllers\SiteController::class, 'services'])->name('site.web-services');
+Route::get('/service-details/{service}', [\App\Http\Controllers\SiteController::class, 'serviceDetails'])->name('site.web-service-details');
+Route::get('/contact', [\App\Http\Controllers\SiteController::class, 'contact'])->name('site.contact');
+Route::get('/contact-submit', [\App\Http\Controllers\SiteController::class, 'submit'])->name('site.contact-submit');
+
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
 
 //vision
 Route::get('/admin/vision', [VisionController::class, 'index'])->name('vision.index');
