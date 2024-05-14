@@ -9,11 +9,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">CFIERD - Our Approach</h4>
+                        <h4 class="mb-sm-0">CFIERD - {{$teamMember->name}}</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
-                                <li class="breadcrumb-item active">Our Approach</li>
+                                <li class="breadcrumb-item active">Our Team Member</li>
                             </ol>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                                 <div class="d-flex align-items-center flex-wrap gap-2">
                                     <div class="flex-grow-1">
 
-                                        <a href="{{route('our-approach.index')}}" class="btn btn-info add-btn">
+                                        <a href="{{route('team-members.index')}}" class="btn btn-info add-btn">
                                             <i class="fa fa-arrow-left"></i> Back
                                         </a>
                                     </div>
@@ -65,26 +65,30 @@
                                     <div class="row g-0">
                                         <div style="margin-top: 15%" class="col-md-4">
                                             <img class="rounded-start w-100"
-                                                 src="{{ asset($ourApproach->image) }}" alt="Card image">
+                                                 src="{{ asset($teamMember->image) }}" alt="Card image">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-header">
-                                                <h5 class="card-title mb-0">{{$ourApproach->title}}</h5>
+                                                <h5 class="card-title mb-0">{{$teamMember->title}}</h5>
                                             </div>
                                             <div class="card-body">
 
-                                                <form method="post" action="{{route('our-approach.update',$ourApproach->slug)}}" enctype="multipart/form-data">
+                                                <form method="post" action="{{route('team-members.update',$teamMember->slug)}}" enctype="multipart/form-data">
                                                     @method('PATCH')
                                                     @csrf
                                                     <div class="modal-body">
                                                         <div class="row g-3" style="border: 1px solid black; padding: 15px;">
                                                             <div class="col-lg-12">
-                                                                <label for="title" class="form-label">Section Title</label>
-                                                                <input type="text" id="title" class="form-control" name="title" value="{{$ourApproach->title}}" placeholder="Enter title " required style="border: 2px solid black;"/>
+                                                                <label for="title" class="form-label">Name</label>
+                                                                <input type="text" id="title" class="form-control" name="name" value="{{$teamMember->name}}" placeholder="Enter title " required style="border: 2px solid black;"/>
                                                             </div>
                                                             <div class="col-lg-12">
-                                                                <label for="text" class="form-label">Content</label>
-                                                                <textarea name="text" class="form-control editor" id="editor" style="border: 2px solid black;">{!! $ourApproach->text !!}</textarea>
+                                                                <label for="title" class="form-label">Title</label>
+                                                                <input type="text" id="title" class="form-control" name="title" value="{{$teamMember->title}}" placeholder="Enter title " required style="border: 2px solid black;"/>
+                                                            </div>
+                                                            <div class="col-lg-12">
+                                                                <label for="editor" class="form-label">Bio</label>
+                                                                <textarea name="description" class="form-control editor" id="editor" style="border: 2px solid black;">{!! $teamMember->description !!}</textarea>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <label for="image" class="form-label">Image Cover</label>

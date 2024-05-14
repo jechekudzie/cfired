@@ -2,16 +2,16 @@
 @section('content')
     <!-- BREADCRUMB AREA -->
     <section class="rts-breadcrumb breadcrumb-height breadcumb-bg"
-             style="background-image: url(website/assets/banners/about.png);">
+             style="background-image: url(website/assets/banners/servicesbanner.png);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-content">
-                        <ul style="display: none;" class="breadcrumb">
+                        <ul  style="display: none;" class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                             <li class="breadcrumb-item"><a href="#">About Us</a></li>
                         </ul>
-                        <h2 style="display: none;" class="section-title">About CFIRED</h2>
+                        <h2 style="text-align: left" class="section-title">About CFIERD</h2>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
             <div class="row justify-content-md-center g-5">
                 <div class="col-lg-7 col-md-7">
                     <div class="">
-                        <img style="margin-top:120px;  width: 800px;height: 500px" src="{{asset('website/assets/banners/aboutus.png')}}" alt="">
+                        <img style=" width: 500px; height: auto;" src="{{asset('logo.png')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">

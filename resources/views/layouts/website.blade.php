@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centre for Impact Evaluation and Research Design (CFIRED)</title>
+    <title>Centre for Impact Evaluation and Research Design (CFIERD)</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('website/logo.png') }}">
     <!-- animate css -->
     <link rel="stylesheet" href="{{ asset('website/assets/css/plugins/animate.min.css') }}">
@@ -45,14 +45,20 @@
                                         <a href="{{route('site.index')}}" class="navigation__menu--item__link active">Home</a>
                                     </li>
 
-                                    <li class="navigation__menu--item">
-                                        <a href="{{route('site.about')}}" class="navigation__menu--item__link">About CFIRED</a>
+
+                                    <li class="navigation__menu--item has-child has-arrow">
+                                        <a href="javascript:void(0);" class="navigation__menu--item__link">About CFIERD</a>
+                                        <ul class="submenu sub__style">
+                                            <li><a href="{{route('site.about')}}">About CFIERD</a></li>
+                                            <li><a href="{{route('site.our-team')}}">Our Team</a></li>
+
+                                        </ul>
                                     </li>
                                     <li class="navigation__menu--item">
                                         <a href="{{route('site.web-services')}}" class="navigation__menu--item__link">Our Services</a>
                                     </li>
                                     <li class="navigation__menu--item">
-                                        <a href="{{url('/')}}" class="navigation__menu--item__link">Events</a>
+                                        <a href="{{ route('site.projects') }}" class="navigation__menu--item__link">Projects</a>
                                     </li>
                                     <li class="navigation__menu--item">
                                         <a href="{{url('/contact')}}" class="navigation__menu--item__link">Contact</a>
@@ -100,11 +106,11 @@
     <!-- inner menu area desktop start -->
     <div class="inner-main-wrapper-desk">
         <div class="thumbnail">
-            <img src="{{asset('website/logo.png')}}" alt="CFIRED">
+            <img src="{{asset('website/logo.png')}}" alt="CFIERD">
         </div>
         <div class="inner-content">
             <p class="disc" style="text-align: justify;color: black;">
-                At the Centre for Impact Evaluation and Research Design (CFIRED), we specialize in crafting custom
+                At the Centre for Impact Evaluation and Research Design (CFIERD), we specialize in crafting custom
                 solutions designed to empower your organization to navigate and thrive in today's dynamic industries.
                 Our expertise lies in developing innovative systems for data management, strategic training, and
                 impactful project foundations, tailored specifically to your unique needs.
@@ -138,14 +144,14 @@
                     <a href="{{route('site.index')}}" class="main">Home</a>
                 </li>
                 <li>
-                    <a href="{{route('site.about')}}" class="main">About CFIRED</a>
+                    <a href="{{route('site.about')}}" class="main">About CFIERD</a>
                 </li>
                 <li>
                     <a href="{{route('site.web-services')}}" class="main">Our Services</a>
                 </li>
 
                 <li>
-                    <a href="" class="main">Events</a>
+                    <a href="{{ route('site.projects') }}" class="main">Projects</a>
                 </li>
 
 
@@ -225,7 +231,7 @@
                         <img width="100" src="{{asset('logo.png')}}" alt="Unipix">
                     </a>
                     <p style="text-align: justify;color: white;">
-                        At the Centre for Impact Evaluation and Research Design (CFIRED), we specialize in crafting
+                        At the Centre for Impact Evaluation and Research Design (CFIERD), we specialize in crafting
                         custom solutions designed to empower your organization to navigate and thrive in today's dynamic
                         industries. Our expertise lies in developing innovative systems for data management, strategic
                         training, and impactful project foundations, tailored specifically to your unique needs.
@@ -238,7 +244,7 @@
             </div>
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="rts-footer-widget ">
-                    <h6 class="rt-semi">About CFIRED</h6>
+                    <h6 class="rt-semi">About CFIERD</h6>
                     <div class="rts-footer-menu">
                         <ul>
                             <li><a href="">About Us</a></li>

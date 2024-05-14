@@ -71,7 +71,7 @@
             <div class="row justify-content-md-center g-5">
                 <div class="col-lg-7 col-md-7">
                     <div class="">
-                        <img style="margin-top:120px;  width: 800px;height: 500px" src="{{asset('website/assets/banners/aboutus.png')}}" alt="">
+                        <img style=" width: 500px; height: auto;" src="{{asset('logo.png')}}" alt="">
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-5">
@@ -151,7 +151,7 @@
         <div class="container">
             <div class="row">
                 <div class="rts-section rt-center mb--45">
-                    <h3 class="rts-section-title">CFIRED SERVICES</h3>
+                    <h3 class="rts-section-title">CFIERD SERVICES</h3>
                 </div>
             </div>
             <div class="row g-5">

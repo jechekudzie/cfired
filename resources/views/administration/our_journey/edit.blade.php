@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">CFIRED - Our JOURNEY</h4>
+                        <h4 class="mb-sm-0">CFIERD - Our JOURNEY</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
@@ -65,26 +65,26 @@
                                     <div class="row g-0">
                                         <div style="margin-top: 15%" class="col-md-4">
                                             <img class="rounded-start w-100"
-                                                 src="{{ asset($mission->image) }}" alt="Card image">
+                                                 src="{{ asset($journey->image) }}" alt="Card image">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-header">
-                                                <h5 class="card-title mb-0">{{$mission->title}}</h5>
+                                                <h5 class="card-title mb-0">{{$journey->title}}</h5>
                                             </div>
                                             <div class="card-body">
 
-                                                <form method="post" action="{{route('our-journey.update',$mission->slug)}}" enctype="multipart/form-data">
+                                                <form method="post" action="{{route('our-journey.update',$journey->slug)}}" enctype="multipart/form-data">
                                                     @method('PATCH')
                                                     @csrf
                                                     <div class="modal-body">
                                                         <div class="row g-3" style="border: 1px solid black; padding: 15px;">
                                                             <div class="col-lg-12">
                                                                 <label for="title" class="form-label">Section Title</label>
-                                                                <input type="text" id="title" class="form-control" name="title" value="{{$mission->title}}" placeholder="Enter title " required style="border: 2px solid black;"/>
+                                                                <input type="text" id="title" class="form-control" name="title" value="{{$journey->title}}" placeholder="Enter title " required style="border: 2px solid black;"/>
                                                             </div>
                                                             <div class="col-lg-12">
                                                                 <label for="text" class="form-label">Content</label>
-                                                                <textarea name="text" class="form-control editor" id="editor" style="border: 2px solid black;">{!! $mission->text !!}</textarea>
+                                                                <textarea name="text" class="form-control editor" id="editor" style="border: 2px solid black;">{!! $journey->text !!}</textarea>
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <label for="image" class="form-label">Image Cover</label>

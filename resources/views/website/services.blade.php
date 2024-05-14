@@ -11,7 +11,7 @@
                             <li class="breadcrumb-item"><a href="#">Our Services</a></li>
 
                         </ul>
-                        <h2 style="display: none;" class="section-title">CFIRED SERVICES</h2>
+                        <h2 style="display: none;" class="section-title">CFIERD SERVICES</h2>
                     </div>
                 </div>
             </div>

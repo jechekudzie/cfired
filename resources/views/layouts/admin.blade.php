@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8"/>
-    <title>CFIRED - Administration</title>
+    <title>CFIERD - Administration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>
     <meta content="Themesbrand" name="author"/>
@@ -87,7 +87,7 @@
 
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Admin</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">CFIRED</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">CFIERD</span>
                             </span>
                         </span>
                         </button>
@@ -157,25 +157,25 @@
                 <ul class="navbar-nav" id="navbar-nav">
                     <li style="/*color:white;*/ font-size: 12px;" class="menu-title"><span
                             data-key="t-menu">Admin Menu</span>
-                    </li>
+                        {{--<li class="nav-item">
+                                       <a style="/*color:white;*/ font-size: 12px;" class="nav-link menu-link collapsed"
+                                          href="#sidebarContact" data-bs-toggle="collapse" role="button"
+                                          aria-expanded="false" aria-controls="sidebarContact">
+                                           <span data-key="t-dashboards">CONTACT</span>
+                                       </a>
+                                       <div class="collapse menu-dropdown" id="sidebarContact">
+                                           <ul class="nav nav-sm flex-column">
+                                               <li class="nav-item">
+                                                   <a style="/*color:white;*/ font-size: 12px;" href="{{route('contact-types.index')}}"
+                                                      class="nav-link {{ Request::routeIs('contact-types.*') ? 'active' : '' }}"
+                                                      data-key="t-analytics">
+                                                       Contact Type </a>
+                                               </li>
+                                           </ul>
+                                       </div>
+                                   </li>--}}           </li>
                     <!-- Contact Menu -->
-                    {{--<li class="nav-item">
-                        <a style="/*color:white;*/ font-size: 12px;" class="nav-link menu-link collapsed"
-                           href="#sidebarContact" data-bs-toggle="collapse" role="button"
-                           aria-expanded="false" aria-controls="sidebarContact">
-                            <span data-key="t-dashboards">CONTACT</span>
-                        </a>
-                        <div class="collapse menu-dropdown" id="sidebarContact">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a style="/*color:white;*/ font-size: 12px;" href="{{route('contact-types.index')}}"
-                                       class="nav-link {{ Request::routeIs('contact-types.*') ? 'active' : '' }}"
-                                       data-key="t-analytics">
-                                        Contact Type </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>--}}
+
                     <!-- end Contact Menu -->
 
                     <!-- Location Menu -->
@@ -184,7 +184,7 @@
                            href="#sidebarLocation" data-bs-toggle="collapse"
                            role="button"
                            aria-expanded="false" aria-controls="sidebarLocation">
-                            <span data-key="t-dashboards">ABOUT CFIRED</span>
+                            <span data-key="t-dashboards">ABOUT CFIERD</span>
                         </a>
                         <div class="collapse menu-dropdown" id="sidebarLocation">
                             <ul class="nav nav-sm flex-column">
@@ -224,6 +224,11 @@
                                        class="nav-link {{ Request::routeIs('our-approach.*') ? 'active' : '' }}" data-key="t-analytics">
                                         Our Approach </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a style="/*color:white;*/ font-size: 12px;" href="{{route('team-members.index')}}"
+                                       class="nav-link {{ Request::routeIs('team-members.*') ? 'active' : '' }}" data-key="t-analytics">
+                                        Our Team </a>
+                                </li>
 
 
                             </ul>
@@ -250,6 +255,25 @@
                                        class="nav-link {{ Request::routeIs('services.*') ? 'active' : '' }}"
                                        data-key="t-analytics">
                                         Services </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a style="/*color:white;*/ font-size: 12px;" class="nav-link menu-link collapsed"
+                           href="#projects" data-bs-toggle="collapse" role="button"
+                           aria-expanded="false" aria-controls="Services">
+                            <span data-key="t-dashboards">OUR PROJECTS</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="projects">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a style="/*color:white;*/ font-size: 12px;" href="{{url('admin/projects')}}"
+                                       class="nav-link"
+                                       data-key="t-analytics">
+                                        Projects </a>
                                 </li>
                             </ul>
                         </div>

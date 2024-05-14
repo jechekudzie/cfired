@@ -10,6 +10,7 @@ use App\Http\Controllers\OurApproachController;
 use App\Http\Controllers\OurServiceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\VisionController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,9 +27,13 @@ use Illuminate\Support\Facades\Route;
 
 // Landing page
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('site.index');
-Route::get('/about', [\App\Http\Controllers\SiteController::class, 'about'])->name('site.about');
+Route::get('/about', [\App\Http\Controllers\SiteController::class, 'ourTeam'])->name('site.our-team');
+Route::get('/our-team', [\App\Http\Controllers\SiteController::class, 'about'])->name('site.about');
 Route::get('/services', [\App\Http\Controllers\SiteController::class, 'services'])->name('site.web-services');
 Route::get('/service-details/{service}', [\App\Http\Controllers\SiteController::class, 'serviceDetails'])->name('site.web-service-details');
+//projects
+Route::get('/web/projects', [\App\Http\Controllers\SiteController::class, 'projects'])->name('site.projects');
+Route::get('/project-details/{project}', [\App\Http\Controllers\SiteController::class, 'projectDetails'])->name('site.project-details');
 Route::get('/contact', [\App\Http\Controllers\SiteController::class, 'contact'])->name('site.contact');
 Route::get('/contact-submit', [\App\Http\Controllers\SiteController::class, 'submit'])->name('site.contact-submit');
 
@@ -66,10 +71,10 @@ Route::delete('/admin/introduction/{introduction}', [IntroductionController::cla
 Route::get('/admin/our-journey', [JourneyController::class, 'index'])->name('our-journey.index');
 Route::post('/admin/our-journey/store', [JourneyController::class, 'store'])->name('our-journey.store');
 Route::get('/admin/our-journey/create', [JourneyController::class, 'create'])->name('our-journey.create');
-Route::get('/admin/our-journey/{ourJourney}', [JourneyController::class, 'show'])->name('our-journey.show');
-Route::get('/admin/our-journey/{ourJourney}/edit', [JourneyController::class, 'edit'])->name('our-journey.edit');
-Route::patch('/admin/our-journey/{ourJourney}', [JourneyController::class, 'update'])->name('our-journey.update');
-Route::delete('/admin/our-journey/{ourJourney}', [JourneyController::class, 'destroy'])->name('our-journey.destroy');
+Route::get('/admin/our-journey/{journey}', [JourneyController::class, 'show'])->name('our-journey.show');
+Route::get('/admin/our-journey/{journey}/edit', [JourneyController::class, 'edit'])->name('our-journey.edit');
+Route::patch('/admin/our-journey/{journey}', [JourneyController::class, 'update'])->name('our-journey.update');
+Route::delete('/admin/our-journey/{journey}', [JourneyController::class, 'destroy'])->name('our-journey.destroy');
 
 //core values
 Route::get('/admin/core-values', [CoreValueController::class, 'index'])->name('core-values.index');
@@ -116,13 +121,21 @@ Route::get('/admin/services/{service}/edit', [ServiceController::class, 'edit'])
 Route::patch('/admin/services/{service}', [ServiceController::class, 'update'])->name('services.update');
 Route::delete('/admin/services/{service}', [ServiceController::class, 'destroy'])->name('services.destroy');
 
+//TeamMembers
+Route::get('/admin/team-members', [TeamMemberController::class, 'index'])->name('team-members.index');
+Route::post('/admin/team-members/store', [TeamMemberController::class, 'store'])->name('team-members.store');
+Route::get('/admin/team-members/create', [TeamMemberController::class, 'create'])->name('team-members.create');
+// Route::get('/admin/team-members/{teamMember}', [TeamMemberController::class, 'show'])->name('team-members.show');
+Route::get('/admin/team-members/{teamMember}/edit', [TeamMemberController::class, 'edit'])->name('team-members.edit');
+Route::patch('/admin/team-members/{teamMember}', [TeamMemberController::class, 'update'])->name('team-members.update');
 
+
+Route::resource('/admin/projects', \App\Http\Controllers\ProjectController::class);
 
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 
 Route::middleware('auth')->group(function () {
@@ -131,4 +144,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

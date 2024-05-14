@@ -15,11 +15,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">CFIERD - Our Services</h4>
+                        <h4 class="mb-sm-0">CFIERD - Our Team</h4>
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">CRM</a></li>
-                                <li class="breadcrumb-item active">Our Services</li>
+                                <li class="breadcrumb-item active">Our Team</li>
                             </ol>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
                                         <button class="btn btn-info add-btn" data-bs-toggle="modal"
                                                 data-bs-target="#showModal">
-                                            <i class="fa fa-plus"></i> Add Services
+                                            <i class="fa fa-plus"></i> Add Team
                                         </button>
                                     </div>
                                 </div>
@@ -71,15 +71,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <!--start table-->
-                                @if($services)
-                                    @foreach($services as $service)
+                                @if($teamMembers)
+                                    @foreach($teamMembers as $teammember)
                                         <div class="row">
                                             <!--end col-->
                                             <div class="col-xxl-8">
                                                 <div class="card">
                                                     <div class="card-header align-items-center d-flex">
                                                         <h4 style="font-weight: bold;font-size: 20px;color: black;" class="card-title mb-0 flex-grow-1">
-                                                            {{$service->title}}
+                                                            {{$teammember->name}} -  ({{$teammember->title}})
                                                         </h4>
                                                     </div><!-- end card header -->
                                                     <div class="card-body">
@@ -89,7 +89,7 @@
                                                                      id="collapseWidthExample">
                                                                     <div class="card card-body mb-0"
                                                                          style="width: 100%;">
-                                                                        {!! $service->text !!}
+                                                                        {!! $teammember->description !!}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -100,10 +100,10 @@
                                                             <li class="list-inline-item">
                                                                 <div class="d-flex align-items-center">
                                                                     <div class="flex-shrink-0 w-100">
-                                                                        <a href="{{route('services.edit',$service->slug)}}"
+                                                                        <a href="{{route('team-members.edit',$teammember->slug)}}"
                                                                            class="btn btn-primary">
-                                                                            <i class="fa fa-pencil"></i> Edit Our
-                                                                            {{$service->title}}
+                                                                            <i class="fa fa-pencil"></i> Edit
+                                                                            {{$teammember->title}}
                                                                         </a>
                                                                     </div>
                                                                 </div>
@@ -116,7 +116,7 @@
 
                                             <div class="col-xxl-4">
                                                 <div class="card">
-                                                    <img class="card-img-top img-fluid" src="{{asset($service->image)}}"
+                                                    <img class="card-img-top img-fluid" src="{{asset($teammember->image)}}"
                                                          alt="Card image cap">
                                                 </div>
                                             </div>
@@ -133,31 +133,34 @@
                                         <div class="modal-content border-0">
                                             <div class="modal-header bg-soft-info p-3">
                                                 <h5 class="modal-title" id="exampleModalLabel">CFIERD
-                                                    SERVICES</h5>
+                                                    Team Members</h5>
                                                 <button type="button" class="btn-close"
                                                         data-bs-dismiss="modal"
                                                         aria-label="Close" id="close-modal"></button>
                                             </div>
-                                            <form method="post" action="{{route('services.store')}}"
+                                            <form method="post" action="{{route('team-members.store')}}"
                                                   enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="modal-body">
                                                     <div class="row g-3">
+
                                                         <div class="col-lg-12">
 
-                                                            <label for="title"
-                                                                   class="form-label">Section Title</label>
-                                                            <input type="text" id="title"
-                                                                   class="form-control"
-                                                                   name="title" placeholder="Enter title "
-                                                                   required/>
+                                                            <label for="name" class="form-label"> Name</label>
+                                                            <input type="text" id="name" class="form-control"
+                                                                   name="name" placeholder="Enter Name" required/>
 
                                                         </div>
                                                         <div class="col-lg-12">
-                                                            <label for="text"
-                                                                   class="form-label">Content</label>
-                                                            <textarea name="text"
-                                                                      class="form-control editor"
+                                                            <label for="title"
+                                                                   class="form-label"> Title</label>
+                                                            <input type="text" id="title" class="form-control"
+                                                                   name="title" placeholder="Enter title " required/>
+
+                                                        </div>
+                                                        <div class="col-lg-12">
+                                                            <label for="editor" class="form-label">Bio</label>
+                                                            <textarea name="description" class="form-control editor"
                                                                       id="editor">
 
                                                     </textarea>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Contact;
+use App\Models\Project;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -31,6 +32,13 @@ class SiteController extends Controller
         return view('website.about', compact('about', 'mission', 'vision', 'journey','values','approach'));
     }
 
+    //our team
+    public function ourTeam()
+    {
+        $teamMembers = \App\Models\TeamMember::all();
+        return view('website.team',compact('teamMembers'));
+    }
+
     //contact
     public function contact()
     {
@@ -49,6 +57,22 @@ class SiteController extends Controller
         $service = Service::find($service);
         $otherServices = \App\Models\Service::all();
         return view('website.service_details',compact('otherServices','service'));
+    }
+
+    //projects
+    public function projects()
+    {
+        $projects = \App\Models\Project::all();
+        return view('website.projects',compact('projects'));
+    }
+
+    //project details
+    public function projectDetails(Project $project)
+    {
+
+        //$project = \App\Models\Project::find($project);
+        $otherProjects = \App\Models\Project::all();
+        return view('website.project_details',compact('project','otherProjects'));
     }
 
     //send email using Contact Mailer
