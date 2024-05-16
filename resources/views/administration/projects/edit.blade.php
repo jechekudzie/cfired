@@ -65,42 +65,60 @@
                                     <div class="row g-0">
                                         <div style="margin-top: 15%" class="col-md-4">
                                             <img class="rounded-start w-100"
-                                                 src="{{ asset($service->image) }}" alt="Card image">
+                                                 src="{{ asset($project->path) }}" alt="Card image">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-header">
-                                                <h5 class="card-title mb-0">{{$service->title}}</h5>
+                                                <h5 class="card-title mb-0">{{$project->title}}</h5>
                                             </div>
                                             <div class="card-body">
 
-                                                <form method="post" action="{{route('services.update',$service->slug)}}" enctype="multipart/form-data">
-                                                    @method('PATCH')
+                                                <form method="post" action="{{ url('admin/projects/' . $project->slug) }}" enctype="multipart/form-data">
                                                     @csrf
+                                                    @method('PATCH')
                                                     <div class="modal-body">
-                                                        <div class="row g-3" style="border: 1px solid black; padding: 15px;">
+                                                        <div class="row g-3">
                                                             <div class="col-lg-12">
-                                                                <label for="title" class="form-label">Section Title</label>
-                                                                <input type="text" id="title" class="form-control" name="title" value="{{$service->title}}" placeholder="Enter title " required style="border: 2px solid black;"/>
+                                                                <label for="title" class="form-label">Project Title</label>
+                                                                <input type="text" id="title" class="form-control" name="title" placeholder="Enter title" value="{{ $project->title }}" required/>
                                                             </div>
+
                                                             <div class="col-lg-12">
-                                                                <label for="text" class="form-label">Content</label>
-                                                                <textarea name="text" class="form-control editor" id="editor" style="border: 2px solid black;">{!! $service->text !!}</textarea>
+                                                                <label for="period" class="form-label">Period (duration)</label>
+                                                                <input type="text" id="period" class="form-control" name="period" placeholder="Enter Duration (e.g., June 2023 - December 2023)" value="{{ $project->period }}" required/>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <label for="image" class="form-label">Image Cover</label>
-                                                                <input type="file" id="image" name="image" class="form-control" placeholder="Upload Image" style="border: 2px solid black;"/>
+
+                                                            <!-- Countries dropdown select -->
+                                                            <div class="col-lg-12">
+                                                                <label for="country_id" class="form-label">Country</label>
+                                                                <select class="form-control" name="country_id" id="country_id">
+                                                                    <option value="">Select Country</option>
+                                                                    @foreach($countries as $country)
+                                                                        <option value="{{ $country->id }}" {{ $project->country_id == $country->id ? 'selected' : '' }}> {{ $country->name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="col-lg-12">
+                                                                <label for="description" class="form-label">Description</label>
+                                                                <textarea name="description" class="form-control editor" id="editor">{{ $project->description }}</textarea>
+                                                            </div>
+
+                                                            <div class="col-lg-4">
+                                                                <div>
+                                                                    <label for="image" class="form-label">Image Cover</label>
+                                                                    <input type="file" id="image" name="pictures[]" class="form-control" multiple placeholder="Upload Image"/>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-
                                                     <div class="modal-footer">
-                                                        <div class="">
+                                                        <div class="justify-content-start">
                                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                                            <input type="submit" class="btn btn-success" value="Submit"/>
+                                                            <input type="submit" class="btn btn-success" value="Update"/>
                                                         </div>
                                                     </div>
                                                 </form>
-
 
                                             </div>
                                         </div>

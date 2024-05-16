@@ -155,6 +155,16 @@
 
                                                         </div>
 
+                                                        <div class="col-lg-12">
+                                                            <label for="title"
+                                                                   class="form-label">Period (duration)</label>
+                                                            <input type="text" id="period"
+                                                                   class="form-control"
+                                                                   name="period" placeholder="Enter Duration june 2023 - december 2023 "
+                                                                   required/>
+
+                                                        </div>
+
                                                         <!-- Countries dropdown select -->
                                                         <div class="col-lg-12">
                                                             <label for="country_id"
